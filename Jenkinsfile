@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build Docker image') {
             steps{
-                sh 'docker build -t %IAMGE_NAME%:latest .'
+                sh 'docker build -t sampledockerapp:v1 .'
             }
         }
         stage('Push to Dockerhub') {
