@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build Docker image') {
             steps{
-                sh 'docker build -t sampledockerapp:v1 .'
+                sh 'docker build -t sampledockerapp:jenkins .'
             }
         }
         stage('Push to Dockerhub') {
