@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch 'main', url: 'https://github.com/AKSri20/springboot-docker-demo.git'
+                git branch: 'main', url: 'https://github.com/AKSri20/springboot-docker-demo.git'
             }
         }
         stage('Build Docker image') {
