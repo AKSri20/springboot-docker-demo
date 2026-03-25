@@ -11,13 +11,13 @@ pipeline {
         }
         stage('Build Docker image') {
             steps{
-                bat 'docker build -t %IAMGE_NAME%:latest .'
+                sh 'docker build -t %IAMGE_NAME%:latest .'
             }
         }
         stage('Push to Dockerhub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker', userNameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]){
-                bat """
+                sh """
                 echo %DOCKER_PASS% |
                 docker login -u %DOCKER_USER% --password-stdin
                 docker push %IMAGE_NAME%:latest
